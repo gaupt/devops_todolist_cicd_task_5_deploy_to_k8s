@@ -29,8 +29,8 @@ jobs:
 
       - name: Download Cluster Configuration
         run: |
-          cp ./cluster.yml
-          
+          find / -name cluster.yml
+
       - uses: actions/download-artifact@v4
         with:
           name: helm-package
