@@ -49,9 +49,9 @@ jobs:
       #  uses: helm/kind-action@v1
       #  with:
       #    config: ./cluster.yml
-      -name: Set Up cluster
-       run: |
-         kind create cluster --config cluster.yml
+      - name: Set up cluster
+        run: |
+          kind create cluster --config cluster.yml
 
       - name: Dry Run Helm
         run: |
