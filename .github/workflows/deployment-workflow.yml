@@ -24,6 +24,13 @@ jobs:
       environment: ${{ inputs.environment }}
 
       steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Cluster Configuration
+        run: |
+          cp ./cluster.yml
+          
       - uses: actions/download-artifact@v4
         with:
           name: helm-package
@@ -49,7 +56,6 @@ jobs:
         uses: helm/kind-action@v1
         with:
           config: ./cluster.yml
-
 
       - name: Dry Run Helm
         run: |
