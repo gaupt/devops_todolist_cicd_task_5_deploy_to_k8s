@@ -37,21 +37,12 @@ jobs:
           name: helm-artifacts
           path: .
 
-      #- uses: actions/download-artifact@v4
-      #  with:
-      #    name: kind-cluster
-      #    path: .
-
       - name: Set Up Helm
         uses: azure/setup-helm@v4.2.0
 
       - name: Set up Kubectl
         uses: azure/setup-kubectl@v4
       
-      - name: Check
-        run: |
-          ls -la
-
       - name: Create k8s Cluster
         uses: helm/kind-action@v1
         with:
